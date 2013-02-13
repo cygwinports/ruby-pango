@@ -1,7 +1,11 @@
-NAME="ruby-pango"
-VERSION=1.1.8
-RELEASE=1
 inherit rubygem
 
+NAME="ruby-pango"
+VERSION=1.2.1
+RELEASE=1
+CATEGORY="Ruby"
+SUMMARY="Ruby Pango bindings"
+DESCRIPTION="Ruby/Pango is a Ruby binding of pango-1.x."
+HOMEPAGE="http://ruby-gnome2.sourceforge.jp/"
 
 DEPS_PATH="/usr/lib/ruby/gems/${RUBY_VERSION}/gems/cairo-*/lib:/usr/lib/ruby/gems/${RUBY_VERSION}/gems/glib2-*/lib"
