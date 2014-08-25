@@ -1,11 +1,17 @@
 inherit rubygem
 
 NAME="ruby-pango"
-VERSION=2.0.2
+VERSION=2.2.0
 RELEASE=1
 CATEGORY="Ruby"
 SUMMARY="Ruby Pango bindings"
 DESCRIPTION="Ruby/Pango is a Ruby binding of pango-1.x."
 HOMEPAGE="http://ruby-gnome2.sourceforge.jp/"
 
-DEPS_PATH="/usr/lib/ruby/gems/${RUBY_VERSION}/gems/cairo-*/lib:/usr/lib/ruby/gems/${RUBY_VERSION}/gems/glib2-*/lib"
+PKG_NAMES="${NAME} ${NAME}-devel ${NAME}-doc"
+ruby_pango_CONTENTS="--exclude=sample ${RUBYGEM_EXTDIR#/} ${RUBYGEM_INSTDIR#/} ${RUBYGEM_SPEC#/}"
+ruby_pango_devel_REQUIRES="${NAME} ruby-glib2-devel libpango1.0-devel"
+ruby_pango_devel_CONTENTS="usr/include/ usr/lib/lib*.a usr/lib/pkgconfig/"
+ruby_pango_doc_CONTENTS="${RUBYGEM_DOCDIR#/} ${RUBYGEM_INSTDIR#/}/sample/"
+
+DEPS_PATH="${RUBYGEM_EXTDIR%/*}/glib2-${VERSION}:${RUBYGEM_EXTDIR%/*}/cairo-1*"
